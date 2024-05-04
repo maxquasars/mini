@@ -1,0 +1,301 @@
+@font-face
+{ 
+   font-family: "Caviar Dreams"; 
+   src: url("/styles/CaviarDreams.ttf") format("truetype"); 
+}
+
+body 
+{
+    overflow-x:hidden;
+
+    margin: 0;
+    padding: 0;
+
+    min-height:100vh;
+
+    font-family: "Caviar Dreams";
+    overflow-wrap: anywhere;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 0;
+
+    --very-light-gray: #ffffff;
+    --light-gray: #e6e6e6;
+	--gray-color: #a8a8a8;
+    --dark-gray: #7e7e7e;
+    --very-dark-gray: #000000;
+
+    --dark-fg: var(--gray-color);
+    --dark-bg: var(--very-dark-gray);
+}
+
+h1
+{
+    font-size: 3.5em;
+}
+h2
+{
+	font-size: 2.5em;
+}
+h3
+{
+    margin-left: 5%;
+    margin-right: 5%;
+    border-bottom: 0.1em solid var(--gray-color);
+	font-size: 2.5em;
+}
+p
+{
+	font-size: 2em;
+}
+button
+{
+	background-color: transparent;
+	border-width: 0;
+	cursor:pointer;
+    padding: 0;
+}
+
+/* Loading */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#loading-screen
+{
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+    opacity: 0.5;
+}
+#loading-screen *
+{
+    background-color: transparent;
+}
+#loading-screen
+{
+    background-color: var(--very-dark-gray);
+}
+.light #loading-screen
+{
+    background-color: var(--very-light-gray);
+}
+
+#loading-img
+{
+	position: absolute;
+	animation: spin linear 2s infinite;
+}
+
+/* Themes */
+
+body
+{
+    color: var(--dark-fg);
+    background-color: var(--dark-bg);
+}
+*
+{
+    color: var(--dark-fg);
+    background-color: var(--dark-bg);
+}
+
+/* Sidebar */
+nav 
+{
+    width: 6em;
+    height: 100%;
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    opacity: 0.75;
+    transition: 0.25s ease-in-out;
+}
+nav:hover
+{
+    opacity: 1;
+    transition: 0.25s ease-in-out;
+}
+nav
+{
+    background-color: black;
+}
+nav *
+{
+    background-color: transparent;
+}
+
+/* Main */
+
+main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main *
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 6em;
+    padding-right: 6em;
+}
+
+header 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    padding: 0;
+}
+header *
+{
+    padding: 1em !important;
+}
+
+.article-box
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.article-box article
+{
+    display: block;
+    width: 30em;
+    margin: 1em;
+    padding: 0;
+    display: flex;
+    align-content: space-around;
+    flex-direction: column;
+}
+.article-box article *
+{
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+}
+.article-box article
+{
+    background-color: var(--dark-gray);
+    border-bottom: 1em solid var(--gray-color);
+}
+.article-box article *
+{
+    color: var(--light-gray);
+}
+
+ul
+{
+    flex-direction: column;
+}
+li
+{
+    margin-bottom: 2em;
+    border-left: 1em solid var(--gray-color);
+}
+li *
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+footer 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 10em 0 10em 0;
+}
+footer *
+{
+    text-align: center;
+}
+footer
+{
+    background-color: black;
+}
+footer *
+{
+    background-color: transparent;
+    color: var(--gray-color);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar
+{
+    width: 1em;
+}
+::-webkit-scrollbar-button
+{
+    height: 0;
+}
+::-webkit-scrollbar-track
+{
+    background-color: var(--gray-color);
+}
+::-webkit-scrollbar-thumb
+{
+    background-color: var(--very-light-gray);
+}
+
+/* Resizing */
+
+@media screen and (max-width:900px)
+{
+    main *
+    {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    nav
+    {
+        width: 100%;
+        height: 6em;
+        flex-direction: row;
+        opacity: 0.75;
+    }
+    header
+    {
+        flex-direction: column;
+    }
+    footer
+    {
+        flex-direction: column;
+    }
+    body
+    {
+        font-size: 0.75em;
+    }
+    .article-box article
+    {
+        width: 100%;
+    }
+    h3
+    {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    p
+    {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
